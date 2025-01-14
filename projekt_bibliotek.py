@@ -1,9 +1,7 @@
 # ------------------------------- Information --------------------------------- #
-"""
-Titel: Biblioteket
-Författare: Nicole Dvali och Leo Edling
-Datum: 2024-11-12
-"""
+
+# Projekt bibliotek, av Nicole Dvali och Leo Edling
+
 # ---------------------------- Klassdefinitioner ------------------------------ #
 class Bok:
     """ Bok är en klass som representerar en bok i biblioteket. Varje objekt
@@ -108,7 +106,8 @@ def main():
             3. Låna bok                                         4. Återlämna bok
             5. Lägg till ny bok                                 6. Ta bort bok
             7. Lista alla böcker                                8. Sortera böcker 
-                                      q. Avsluta program     
+            r. Rekomenderar böcker                              q. Avsluta program
+              
 
         ---------------------------------------------------------------------------------------
         """)
@@ -138,27 +137,45 @@ def main():
         
         # Lånar en bok:
         elif menyVal == "3":
-            pass
+            titel = input("Ange titeln på boken du vill låna: ")
+            print(bibliotek.lånaBok(titel))
         
         # Återlämnar en bok:
         elif menyVal == "4":
-            pass
+            titel = input("Ange titeln på boken du vill återlämna: ")
+            print(bibliotek.lämnaTillbaka(titel))
         
         # Lägger till en ny bok:
         elif menyVal == "5":
-            pass
-        
+            författare = input("Ange författarens namn: ")
+            titel = input("Ange bokens titel: ")
+            print(bibliotek.läggTill(författare, titel))
+
         # Tar bort en bok:
         elif menyVal == "6":
-            pass
+            titel = input("Ange titeln på boken du vill ta bort: ")
+            print(bibliotek.taBort(titel))
         
         # Lista på alla böcker:
         elif menyVal == "7":
-            pass
+            print(bibliotek.listaBöcker())
         
         # Sorterar böcker: 
         elif menyVal == "8":
-            pass
+            print(bibliotek.sorteraBöcker())
+        
+        # Rekomenderar böcker:
+        elif menyVal == "r":
+            print("Vi rekommenderar följande böcker: ")
+            print("Romeo och Julia av William Shakespeare")
+            print("Kiss och Bajs Boken av Nicole Dvali, Leo Edling")
+            print("Don Quixote av Miguel Cervantes")
+            
+        # Avslutar programmet: 
+        elif menyVal == "q":
+            print("Avslutar programmet.")
+        else:
+            print("Ogiltigt val. Försök igen.")
             
 
 print(
@@ -175,6 +192,7 @@ print(
                             ^--^---'--^    `-'`---^-^--^--^---'--'--'
 """)
 
-main()
+if __name__ == "__main__":
+    main()
 
 # Slut på kod, kiss :-) 
